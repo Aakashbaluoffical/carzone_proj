@@ -1,10 +1,1228 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>home</title>
+    <title>Car Zone  | Home </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/animate.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap-submenu.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap-select.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/magnific-popup.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/flaticon/font/flaticon.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/linearicons/style.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/jquery.mCustomScrollbar.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/dropzone.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/slick.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/lightbox.min.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/jnoty.css'%}">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="{% static 'pages/css/skins/red.css'%}">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{% static 'pages/img/favicon.ico'%}" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/ie10-viewport-bug-workaround.css'%}">
+
+    <script  src="{% static 'pages/js/ie-emulation-modes-warning.js'%}"></script>
+
+    <style>
+        @media screen and (max-width: 992px){
+            .sticky-header{
+                top: 105px !important;
+            }
+            .top-header{
+                display:block !important;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <h1>home page sucess!</h1>
+<div class="page_loader"></div>
+
+<!-- Top header start -->
+<header class="top-header th-2 top-header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <div class="list-inline">
+                    <a href="https://bit.ly/3DmA4Wm" target="_blank" class="buy_course_link" style="color: white;text-transform: uppercase;letter-spacing: 2px;float: right;"><span>&#x1F525</span> Purchase Full Course on Udemy | Lowest Price <span>&#x1F525</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <ul class="top-social-media pull-right">
+
+                  
+                    <li>
+                        <a href="accounts/login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li>
+                        <a href="accounts/register.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+                  
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Top header end -->
+
+
+
+<!-- Main header start -->
+<header class="main-header sticky-header header-with-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand company-logo" href="index.html">
+                <img src="static/pages/img/logos/black-logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+
+
+
+                        <a
+                          
+                          class="nav-link active"
+                          
+                         href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                        
+                        class="nav-link"
+                        
+                         href="cars/index.html">
+                            Cars
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                        
+                        class="nav-link"
+                        
+                         href="about.html">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                        
+                        class="nav-link"
+                        
+                         href="services.html">
+                            Services
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a
+                        
+                        class="nav-link"
+                        
+                         href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown m-hide">
+                        <a href="#full-page-search" class="nav-link h-icon">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- Main header end -->
+
+
+
+
+
+
+
+
+<!-- Banner start -->
+
+<div class="banner" id="banner">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner banner-slider-inner text-center">
+            <div class="carousel-item banner-max-height active item-bg">
+                <img class="d-block w-100 h-100" src="{%static 'pages/img/car-1.jpg'%}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+
+                    <h3>Wow Factor Standard</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{%static 'pages/img/car-2.jpg'%}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>Explore Your Dream Car</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+            <div class="carousel-item banner-max-height item-bg">
+                <img class="d-block w-100 h-100" src="{%static 'pages//img/car-3.jpg'%}" alt="banner">
+                <div class="carousel-content container banner-info-2 bi-2 text-left">
+                    <h3>We Are Wheel</h3>
+                    <h5>Allow us to guide you through the innovative stress<br>
+                        free approach in finding your dream car.</h5>
+                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                </div>
+            </div>
+        </div>
+        <!-- Search box 3 start -->
+        <div class="search-box-4 sb-8">
+            <form action="https://djangocarzone.com/cars/search" method="">
+                <div class="form-group">
+                    <input type="text" name="keyword" placeholder="Search by name" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <select class="form-control search-fields" name="model">
+                        <option selected="true" disabled="disabled">Model</option>
+                        
+                          <option value="F-250">F-250</option>
+                        
+                          <option value="Corolla">Corolla</option>
+                        
+                          <option value="F-PACE">F-PACE</option>
+                        
+                          <option value="488 GTB">488 GTB</option>
+                        
+                          <option value="Edge">Edge</option>
+                        
+                          <option value="4Runner">4Runner</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="city">
+                        <option selected="true" disabled="disabled">Location</option>
+                        
+                          <option value="San Antonio">San Antonio</option>
+                        
+                          <option value="Dallas">Dallas</option>
+                        
+                          <option value="Austin">Austin</option>
+                        
+                          <option value="Ohio">Ohio</option>
+                        
+                          <option value="Houston">Houston</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="year">
+                        <option selected="true" disabled="disabled">Year</option>
+                        
+                          <option value="2017">2017</option>
+                        
+                          <option value="2018">2018</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control search-fields" name="body_style">
+                        <option selected="true" disabled="disabled">Select Type Of Car</option>
+                        
+                          <option value="Sport">Sport</option>
+                        
+                          <option value="SUV">SUV</option>
+                        
+                          <option value="Sedan">Sedan</option>
+                        
+                    </select>
+                </div>
+                <div class="range-slider clearfix">
+                                <label>Price</label>
+                                <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                <div class="clearfix"></div>
+                            </div>
+                <div class="form-group">
+                    <button class="btn btn-block button-theme btn-md">
+                        <i class="fa fa-search"></i> Search
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- Search box 3 end -->
+        <a class="carousel-control-prev none-580" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="slider-mover-left" aria-hidden="true">
+                <i class="fa fa-angle-left"></i>
+            </span>
+        </a>
+        <a class="carousel-control-next none-580" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="slider-mover-right" aria-hidden="true">
+                <i class="fa fa-angle-right"></i>
+            </span>
+        </a>
+    </div>
+</div>
+<!-- Banner end -->
+
+<!-- Search box 2 end -->
+
+<!-- Featured car start -->
+<div class="featured-car content-area-5">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Featured <span>Cars</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+              
+                <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="cars/5.html" class="car-img">
+                                <div class="tag-2">Featured</div>
+                                <div class="price-box">
+                                    <span>$50,000</span>
+                                </div>
+                                <img class="d-block w-100" src="media/photos/2020/07/06/1902932503.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            </a>
+                            <div class="carbox-overlap-wrapper">
+                                <div class="overlap-box">
+                                    <div class="overlap-btns-area">
+                                        <div class="car-magnify-gallery">
+                                            <a href="media/photos/2020/07/06/1902932503.jpg" class="overlap-btn">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="media/photos/2020/07/06/1902932503.jpg">
+                                            </a>
+                                            
+                                            <a href="media/photos/2020/07/06/1902932514.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902932514.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1902932528.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902932528.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1902932542.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902932542.jpg">
+                                            </a>
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="cars/5.html">2017 Jaguar F-PACE</a>
+                            </h1>
+                            <div class="location">
+                                <a href="cars/5.html">
+                                    <i class="flaticon-pin"></i>TX, Austin
+                                </a>
+                            </div>
+                            <ul class="facilities-list clearfix">
+                                <li>Petrol</li>
+                                <li>12,500 km</li>
+                                <li>Automatic</li>
+                                <li>SUV</li>
+                                <li>Green</li>
+                                <li>2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="cars/4.html" class="car-img">
+                                <div class="tag-2">Featured</div>
+                                <div class="price-box">
+                                    <span>$30,000</span>
+                                </div>
+                                <img class="d-block w-100" src="media/photos/2020/07/06/1894300894.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            </a>
+                            <div class="carbox-overlap-wrapper">
+                                <div class="overlap-box">
+                                    <div class="overlap-btns-area">
+                                        <div class="car-magnify-gallery">
+                                            <a href="media/photos/2020/07/06/1894300894.jpg" class="overlap-btn">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="media/photos/2020/07/06/1894300894.jpg">
+                                            </a>
+                                            
+                                            <a href="media/photos/2020/07/06/1894300905.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1894300905.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1894300920.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1894300920.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1900155012.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1900155012.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1900155133.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1900155133.jpg">
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="cars/4.html">2017 Ford F-250 Super Duty</a>
+                            </h1>
+                            <div class="location">
+                                <a href="cars/4.html">
+                                    <i class="flaticon-pin"></i>NY, Ohio
+                                </a>
+                            </div>
+                            <ul class="facilities-list clearfix">
+                                <li>Diesel</li>
+                                <li>13,000 km</li>
+                                <li>Automatic</li>
+                                <li>SUV</li>
+                                <li>Black</li>
+                                <li>2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="cars/3.html" class="car-img">
+                                <div class="tag-2">Featured</div>
+                                <div class="price-box">
+                                    <span>$25,000</span>
+                                </div>
+                                <img class="d-block w-100" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            </a>
+                            <div class="carbox-overlap-wrapper">
+                                <div class="overlap-box">
+                                    <div class="overlap-btns-area">
+                                        <div class="car-magnify-gallery">
+                                            <a href="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" class="overlap-btn">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg">
+                                            </a>
+                                            
+                                            <a href="media/photos/2020/07/06/1901478618_IC2e7kB.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1901478618_IC2e7kB.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1901478646_tZTEEcn.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1901478646_tZTEEcn.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1901478672_EqQdx4O.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1901478672_EqQdx4O.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1901478687_JJXSaxx.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1901478687_JJXSaxx.jpg">
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="cars/3.html">2017 Ford Edge</a>
+                            </h1>
+                            <div class="location">
+                                <a href="cars/3.html">
+                                    <i class="flaticon-pin"></i>TX, Dallas
+                                </a>
+                            </div>
+                            <ul class="facilities-list clearfix">
+                                <li>Petrol</li>
+                                <li>12,000 km</li>
+                                <li>Automatic</li>
+                                <li>SUV</li>
+                                <li>Black</li>
+                                <li>2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="slick-slide-item">
+                    <div class="car-box-3">
+                        <div class="car-thumbnail">
+                            <a href="cars/2.html" class="car-img">
+                                <div class="tag-2">Featured</div>
+                                <div class="price-box">
+                                    <span>$40,000</span>
+                                </div>
+                                <img class="d-block w-100" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            </a>
+                            <div class="carbox-overlap-wrapper">
+                                <div class="overlap-box">
+                                    <div class="overlap-btns-area">
+                                        <div class="car-magnify-gallery">
+                                            <a href="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" class="overlap-btn">
+                                                <i class="fa fa-expand"></i>
+                                                <img class="hidden" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg">
+                                            </a>
+                                            
+                                            <a href="media/photos/2020/07/06/1902536917_67yjFBb.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902536917_67yjFBb.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1902537043_m1EBQQG.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902537043_m1EBQQG.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1902537077_twIPCTJ.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902537077_twIPCTJ.jpg">
+                                            </a>
+                                            
+                                            
+                                            <a href="media/photos/2020/07/06/1902537082_fAE2eAe.jpg" class="hidden">
+                                                <img class="hidden" src="media/photos/2020/07/06/1902537082_fAE2eAe.jpg">
+                                            </a>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <h1 class="title">
+                                <a href="cars/2.html">2017 Ferrari 488 GTB</a>
+                            </h1>
+                            <div class="location">
+                                <a href="cars/2.html">
+                                    <i class="flaticon-pin"></i>TX, Austin
+                                </a>
+                            </div>
+                            <ul class="facilities-list clearfix">
+                                <li>Petrol</li>
+                                <li>10,000 km</li>
+                                <li>Automatic</li>
+                                <li>Sport</li>
+                                <li>White</li>
+                                <li>2017</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            
+
+            </div>
+
+            <div class="slick-btn" style="
+              
+                display: block;
+              
+            ">
+                <div class="slick-prev slick-arrow-buton sab-4">
+                    <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="slick-next slick-arrow-buton sab-3">
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured car end -->
+
+<!-- Rent car start -->
+<div class="featured-car content-area">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Latest <span>Cars</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="row">
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/7.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/10/1900893329.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>22,500 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2018
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Manual
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/10/1900893329.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/10/1900893329.jpg">
+                                        </a>
+                                        
+                                        <a href="media/photos/2020/07/10/1900893299.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1900893299.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1900893319.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1900893319.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1900893311.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1900893311.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1900893391.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1900893391.jpg">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/7.html">2018 Toyota Corolla</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/7.html">
+                                <i class="flaticon-pin"></i>TX, San Antonio
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">Sedan</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 23,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/6.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/10/1893633875.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>10,000 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2018
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Manual
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/10/1893633875.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/10/1893633875.jpg">
+                                        </a>
+                                        
+                                        <a href="media/photos/2020/07/10/1893633879.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1893633879.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1893633884.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1893633884.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1896836883.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1896836883.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/10/1896836887.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/10/1896836887.jpg">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/6.html">2018 Toyota 4Runner</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/6.html">
+                                <i class="flaticon-pin"></i>TX, Houston
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">SUV</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 30,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/5.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/06/1902932503.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>12,500 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2017
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/06/1902932503.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/06/1902932503.jpg">
+                                        </a>
+                                        
+                                        <a href="media/photos/2020/07/06/1902932514.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1902932514.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1902932528.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1902932528.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1902932542.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1902932542.jpg">
+                                        </a>
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/5.html">2017 Jaguar F-PACE</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/5.html">
+                                <i class="flaticon-pin"></i>TX, Austin
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">SUV</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 50,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/4.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/06/1894300894.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>13,000 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2017
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/06/1894300894.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/06/1894300894.jpg">
+                                        </a>
+                                        
+                                        <a href="media/photos/2020/07/06/1894300905.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1894300905.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1894300920.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1894300920.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1900155012.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1900155012.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1900155133.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1900155133.jpg">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/4.html">2017 Ford F-250 Super Duty</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/4.html">
+                                <i class="flaticon-pin"></i>NY, Ohio
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">SUV</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 30,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/3.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>12,000 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2017
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg">
+                                        </a>
+                                        
+                                        <a href="media/photos/2020/07/06/1901478618_IC2e7kB.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1901478618_IC2e7kB.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1901478646_tZTEEcn.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1901478646_tZTEEcn.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1901478672_EqQdx4O.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1901478672_EqQdx4O.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="media/photos/2020/07/06/1901478687_JJXSaxx.jpg" class="hidden">
+                                            <img class="hidden" src="media/photos/2020/07/06/1901478687_JJXSaxx.jpg">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/3.html">2017 Ford Edge</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/3.html">
+                                <i class="flaticon-pin"></i>TX, Dallas
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">SUV</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 25,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+            <div class="col-lg-4 col-md-6">
+                <div class="car-box">
+                    <div class="car-thumbnail">
+                        <a href="cars/2.html" class="car-img">
+                            <div class="tag">For Sale</div>
+                            <img class="d-block w-100" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <div class="facilities-list clearfix">
+                                <ul>
+                                    <li>
+                                        <span><i class="flaticon-way"></i></span>10,000 km
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-calendar-1"></i></span>2017
+                                    </li>
+                                    <li>
+                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                        <div class="carbox-overlap-wrapper">
+                            <div class="overlap-box">
+                                <div class="overlap-btns-area">
+                                    <div class="car-magnify-gallery">
+                                        <a href="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" class="overlap-btn">
+                                            <i class="fa fa-expand"></i>
+                                            <img class="hidden" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg">
+                                        </a>
+                                        
+                                        <a href="../../media/photos/2020/07/06/1902536917_67yjFBb.jpg" class="hidden">
+                                            <img class="hidden" src="../../media/photos/2020/07/06/1902536917_67yjFBb.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="../../media/photos/2020/07/06/1902537043_m1EBQQG.jpg" class="hidden">
+                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537043_m1EBQQG.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="../../media/photos/2020/07/06/1902537077_twIPCTJ.jpg" class="hidden">
+                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537077_twIPCTJ.jpg">
+                                        </a>
+                                        
+                                        
+                                        <a href="../../media/photos/2020/07/06/1902537082_fAE2eAe.jpg" class="hidden">
+                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537082_fAE2eAe.jpg">
+                                        </a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <h1 class="title">
+                            <a href="cars/2.html">2017 Ferrari 488 GTB</a>
+                        </h1>
+                        <div class="location">
+                            <a href="cars/2.html">
+                                <i class="flaticon-pin"></i>TX, Austin
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer clearfix">
+                        <div class="pull-left ratings days">
+                            <p class="cartype">Sport</p>
+                        </div>
+                        <div class="pull-right">
+                            <p class="price">$ 40,000</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+
+        </div>
+    </div>
+</div>
+<!-- Rent car end -->
+
+
+<!-- Our team start -->
+<div class="our-team content-area bg-grea-3">
+    <div class="container">
+        <!-- Main title -->
+        <div class="main-title">
+            <h1>Executive <span>Team</span></h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+        </div>
+        <!-- Slick slider area start -->
+        <div class="slick-slider-area clearfix">
+            <div class="row slick-carousel" data-slick='{"slidesToShow": 4, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
+              
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="media/photos/2020/07/05/avatar-11.jpg" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">Martin Smith</a></h4>
+                            <h5>Founder</h5>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="media/photos/2020/07/05/avatar-9.jpg" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">Stone Carolyn</a></h4>
+                            <h5>Creative Director</h5>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="media/photos/2020/07/05/avatar-1.jpg" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">Brandon Miller</a></h4>
+                            <h5>Co-Founder</h5>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="media/photos/2020/07/05/avatar-12.jpg" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">John Doe</a></h4>
+                            <h5>CEO</h5>
+                        </div>
+                    </div>
+                </div>
+              
+                <div class="slick-slide-item">
+                    <div class="team-1">
+                        <div class="photo">
+                            <a href="#">
+                                <img src="media/photos/2020/07/05/avatar-10.jpg" alt="team-1" class="img-fluid">
+                            </a>
+                            <div class="social-list clearfix">
+                                <a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a>
+                                <a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google"></i></a>
+                            </div>
+                        </div>
+                        <div class="details">
+                            <h4><a href="#">Michelle Nelson</a></h4>
+                            <h5>Support Manager</h5>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Our team end -->
+
+<!-- Intro section start -->
+<div class="intro-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <div class="intro-text">
+                    <h3>Do You Have Questions ?</h3>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-sm-12">
+                <a href="contact.html" class="btn btn-md">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Intro section end -->
+
+
+
+
+
+
+
+
+
+<!-- Full Page Search -->
+<div id="full-page-search">
+    <button type="button" class="close">×</button>
+    <form action="https://djangocarzone.com/cars/search" class="search-header">
+        <input type="search" value="" placeholder="type keyword(s) here. Eg: audi, benz etc" name='keyword' />
+        <button type="submit" class="btn btn-sm button-theme">Search</button>
+    </form>
+</div>
+
+<!-- Footer start -->
+<footer class="footer">
+
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="copy">© 2022 Carzone Corp. All Rights Reserved.</p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="social-list-2">
+                        <ul>
+                            <li><a href="https://facebook.com/" target="_blank" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://twitter.com/" target="_blank" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://google.com/" target="_blank" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="https://linkedin.com/" target="_blank" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+
+
+<script src="{% static 'pages/js/jquery-2.2.0.min.js'%}"></script>
+<script src="{% static 'pages/js/popper.min.js'%}"></script>
+<script src="{% static 'pages/js/bootstrap.min.js'%}"></script>
+<script  src="{% static 'pages/js/bootstrap-submenu.js'%}"></script>
+<script  src="{% static 'pages/js/rangeslider.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mb.YTPlayer.js'%}"></script>
+<script  src="{% static 'pages/js/bootstrap-select.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.easing.1.3.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.scrollUp.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+<script  src="{% static 'pages/js/dropzone.js'%}"></script>
+<script  src="{% static 'pages/js/slick.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.filterizr.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.magnific-popup.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.countdown.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mousewheel.min.js'%}"></script>
+<script  src="{% static 'pages/js/lightgallery-all.js'%}"></script>
+<script  src="{% static 'pages/js/jnoty.js'%}"></script>
+<script  src="{% static 'pages/js/app.js'%}"></script>
+
+
 </body>
+
+
+<!-- Mirrored from djangocarzone.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 15:36:19 GMT -->
 </html>
