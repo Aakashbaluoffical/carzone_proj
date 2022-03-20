@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Car Zone  | Home </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <!-- External CSS libraries -->
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/animate.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap-submenu.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/bootstrap-select.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/css/magnific-popup.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/font-awesome/css/font-awesome.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/flaticon/font/flaticon.css'%}">
+    <link rel="stylesheet" type="text/css" href="{%static 'pages/fonts/linearicons/style.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/jquery.mCustomScrollbar.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/dropzone.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/slick.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/lightbox.min.css'%}">
+    <link rel="stylesheet" type="text/css"  href="{%static 'pages/css/jnoty.css'%}">
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/style.css'%}">
+    <link rel="stylesheet" type="text/css" id="style_sheet" href="{% static 'pages/css/skins/red.css'%}">
+
+    <!-- Favicon icon -->
+    <link rel="shortcut icon" href="{% static 'pages/img/favicon.ico'%}" type="image/x-icon" >
+
+    <!-- Google fonts -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800%7CPlayfair+Display:400,700%7CRoboto:100,300,400,400i,500,700">
+
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'pages/css/ie10-viewport-bug-workaround.css'%}">
+
+    <script  src="{% static 'pages/js/ie-emulation-modes-warning.js'%}"></script>
+
+    <style>
+        @media screen and (max-width: 992px){
+            .sticky-header{
+                top: 105px !important;
+            }
+            .top-header{
+                display:block !important;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="page_loader"></div>
+
+<!-- Top header start -->
+<header class="top-header th-2 top-header-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-7">
+                <div class="list-inline">
+                    <a href="https://bit.ly/3DmA4Wm" target="_blank" class="buy_course_link" style="color: white;text-transform: uppercase;letter-spacing: 2px;float: right;"><span>&#x1F525</span> Purchase Full Course on Udemy | Lowest Price <span>&#x1F525</span></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-5">
+                <ul class="top-social-media pull-right">
+
+
+                    <li>
+                        <a href="accounts/login.html" class="sign-in"><i class="fa fa-sign-in"></i> Login</a>
+                    </li>
+                    <li>
+                        <a href="accounts/register.html" class="sign-in"><i class="fa fa-user"></i> Register</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Top header end -->
+
+
+
+<!-- Main header start -->
+<header class="main-header sticky-header header-with-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand company-logo" href="index.html">
+                <img src="static/pages/img/logos/black-logo.png">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="navbar-collapse collapse w-100" id="navbar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+
+
+
+                        <a
+
+                          class="nav-link active"
+
+                         href="index.html">
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+
+                        class="nav-link"
+
+                         href="cars/index.html">
+                            Cars
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+
+                        class="nav-link"
+
+                         href="about.html">
+                            About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+
+                        class="nav-link"
+
+                         href="services.html">
+                            Services
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a
+
+                        class="nav-link"
+
+                         href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown m-hide">
+                        <a href="#full-page-search" class="nav-link h-icon">
+                            <i class="fa fa-search"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<!-- Main header end -->
+{% block comtent %}
+
+{% endblock%}
+
+
+
+
+<!-- Footer end -->
+
+
+<script src="{% static 'pages/js/jquery-2.2.0.min.js'%}"></script>
+<script src="{% static 'pages/js/popper.min.js'%}"></script>
+<script src="{% static 'pages/js/bootstrap.min.js'%}"></script>
+<script  src="{% static 'pages/js/bootstrap-submenu.js'%}"></script>
+<script  src="{% static 'pages/js/rangeslider.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mb.YTPlayer.js'%}"></script>
+<script  src="{% static 'pages/js/bootstrap-select.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.easing.1.3.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.scrollUp.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mCustomScrollbar.concat.min.js'%}"></script>
+<script  src="{% static 'pages/js/dropzone.js'%}"></script>
+<script  src="{% static 'pages/js/slick.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.filterizr.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.magnific-popup.min.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.countdown.js'%}"></script>
+<script  src="{% static 'pages/js/jquery.mousewheel.min.js'%}"></script>
+<script  src="{% static 'pages/js/lightgallery-all.js'%}"></script>
+<script  src="{% static 'pages/js/jnoty.js'%}"></script>
+<script  src="{% static 'pages/js/app.js'%}"></script>
+
+
+</body>
+
+
+<!-- Mirrored from djangocarzone.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 19 Mar 2022 15:36:19 GMT -->
+</html>
