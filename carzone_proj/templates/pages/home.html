@@ -1,6 +1,8 @@
-{%extends 'base.html'%}
-{% block content %}
+{% extends 'base.html'%}
 {% load static %}
+{% block content %}
+{% load humanize %}
+
 <!-- Banner start -->
 
 <div class="banner" id="banner">
@@ -13,7 +15,7 @@
                     <h3>Wow Factor Standard</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="{% url 'service' %}" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
@@ -22,7 +24,7 @@
                     <h3>Explore Your Dream Car</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="{% url 'service'%}" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
             <div class="carousel-item banner-max-height item-bg">
@@ -31,7 +33,7 @@
                     <h3>We Are Wheel</h3>
                     <h5>Allow us to guide you through the innovative stress<br>
                         free approach in finding your dream car.</h5>
-                    <a href="services.html" class="btn btn-lg btn-theme">Read more</a>
+                    <a href="{% url 'service'%}" class="btn btn-lg btn-theme">Read more</a>
                 </div>
             </div>
         </div>
@@ -138,40 +140,50 @@
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
             <div class="row slick-carousel" data-slick='{"slidesToShow": 3, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-              
+              {% for car in feature_cars%}
                 <div class="slick-slide-item">
                     <div class="car-box-3">
                         <div class="car-thumbnail">
                             <a href="cars/5.html" class="car-img">
                                 <div class="tag-2">Featured</div>
                                 <div class="price-box">
-                                    <span>$50,000</span>
+                                    <span>${{car.price | intcomma}}</span>
                                 </div>
-                                <img class="d-block w-100" src="media/photos/2020/07/06/1902932503.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                                <img class="d-block w-100" src="{{car.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             </a>
                             <div class="carbox-overlap-wrapper">
                                 <div class="overlap-box">
                                     <div class="overlap-btns-area">
                                         <div class="car-magnify-gallery">
-                                            <a href="media/photos/2020/07/06/1902932503.jpg" class="overlap-btn">
+                                            <a href="{{car.car_photo.url}}" class="overlap-btn">
                                                 <i class="fa fa-expand"></i>
-                                                <img class="hidden" src="media/photos/2020/07/06/1902932503.jpg">
+                                                <img class="hidden" src="{{car.car_photo.url}}">
                                             </a>
-                                            
-                                            <a href="media/photos/2020/07/06/1902932514.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902932514.jpg">
+
+                                            {%if cars.car_photo_1%}
+                                            <a href="{{car.car_photo_1.url}}" class="hidden">
+                                                <img class="hidden" src="{{car.car_photo_1.url}}">
                                             </a>
+                                             {%endif%}
+                                        {%if cars.car_photo_2%}
                                             
-                                            
-                                            <a href="media/photos/2020/07/06/1902932528.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902932528.jpg">
+                                            <a href="{{car.car_photo_2.url}}" class="hidden">
+                                                <img class="hidden" src="{{car.car_photo_2.url}}">
                                             </a>
+                                             {%endif%}
+                                        {%if cars.car_photo_3%}
                                             
                                             
-                                            <a href="media/photos/2020/07/06/1902932542.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902932542.jpg">
+                                            <a href="{{car.car_photo_3.url}}" class="hidden">
+                                                <img class="hidden" src="{{car.car_photo_3.url}}">
                                             </a>
-                                            
+                                             {%endif%}
+                                        {%if cars.car_photo_4%}
+                                            <a href="{{car.car_photo_4.url}}" class="hidden">
+                                                <img class="hidden" src="{{car.car_photo_4.url}}">
+                                            </a>
+                                             {%endif%}
+
                                             
                                         </div>
                                     </div>
@@ -180,218 +192,25 @@
                         </div>
                         <div class="detail">
                             <h1 class="title">
-                                <a href="cars/5.html">2017 Jaguar F-PACE</a>
+                                <a href="cars/5.html">{{car.car_title}}</a>
                             </h1>
                             <div class="location">
                                 <a href="cars/5.html">
-                                    <i class="flaticon-pin"></i>TX, Austin
+                                    <i class="flaticon-pin"></i>{{car.city}},{{car.state}}
                                 </a>
                             </div>
                             <ul class="facilities-list clearfix">
-                                <li>Petrol</li>
-                                <li>12,500 km</li>
-                                <li>Automatic</li>
-                                <li>SUV</li>
-                                <li>Green</li>
-                                <li>2017</li>
+                                <li>{{car.fuel_type}}</li>
+                                <li>{{car.miles | intcomma}} km</li>
+                                <li>{{car.transmission}}</li>
+                                <li>{{car.body_style}}</li>
+                                <li>{{car.colour}}</li>
+                                <li>{{car.year}}</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            
-                <div class="slick-slide-item">
-                    <div class="car-box-3">
-                        <div class="car-thumbnail">
-                            <a href="cars/4.html" class="car-img">
-                                <div class="tag-2">Featured</div>
-                                <div class="price-box">
-                                    <span>$30,000</span>
-                                </div>
-                                <img class="d-block w-100" src="media/photos/2020/07/06/1894300894.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            </a>
-                            <div class="carbox-overlap-wrapper">
-                                <div class="overlap-box">
-                                    <div class="overlap-btns-area">
-                                        <div class="car-magnify-gallery">
-                                            <a href="media/photos/2020/07/06/1894300894.jpg" class="overlap-btn">
-                                                <i class="fa fa-expand"></i>
-                                                <img class="hidden" src="media/photos/2020/07/06/1894300894.jpg">
-                                            </a>
-                                            
-                                            <a href="media/photos/2020/07/06/1894300905.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1894300905.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1894300920.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1894300920.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1900155012.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1900155012.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1900155133.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1900155133.jpg">
-                                            </a>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <h1 class="title">
-                                <a href="cars/4.html">2017 Ford F-250 Super Duty</a>
-                            </h1>
-                            <div class="location">
-                                <a href="cars/4.html">
-                                    <i class="flaticon-pin"></i>NY, Ohio
-                                </a>
-                            </div>
-                            <ul class="facilities-list clearfix">
-                                <li>Diesel</li>
-                                <li>13,000 km</li>
-                                <li>Automatic</li>
-                                <li>SUV</li>
-                                <li>Black</li>
-                                <li>2017</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="slick-slide-item">
-                    <div class="car-box-3">
-                        <div class="car-thumbnail">
-                            <a href="cars/3.html" class="car-img">
-                                <div class="tag-2">Featured</div>
-                                <div class="price-box">
-                                    <span>$25,000</span>
-                                </div>
-                                <img class="d-block w-100" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            </a>
-                            <div class="carbox-overlap-wrapper">
-                                <div class="overlap-box">
-                                    <div class="overlap-btns-area">
-                                        <div class="car-magnify-gallery">
-                                            <a href="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" class="overlap-btn">
-                                                <i class="fa fa-expand"></i>
-                                                <img class="hidden" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg">
-                                            </a>
-                                            
-                                            <a href="media/photos/2020/07/06/1901478618_IC2e7kB.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1901478618_IC2e7kB.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1901478646_tZTEEcn.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1901478646_tZTEEcn.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1901478672_EqQdx4O.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1901478672_EqQdx4O.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1901478687_JJXSaxx.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1901478687_JJXSaxx.jpg">
-                                            </a>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <h1 class="title">
-                                <a href="cars/3.html">2017 Ford Edge</a>
-                            </h1>
-                            <div class="location">
-                                <a href="cars/3.html">
-                                    <i class="flaticon-pin"></i>TX, Dallas
-                                </a>
-                            </div>
-                            <ul class="facilities-list clearfix">
-                                <li>Petrol</li>
-                                <li>12,000 km</li>
-                                <li>Automatic</li>
-                                <li>SUV</li>
-                                <li>Black</li>
-                                <li>2017</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="slick-slide-item">
-                    <div class="car-box-3">
-                        <div class="car-thumbnail">
-                            <a href="cars/2.html" class="car-img">
-                                <div class="tag-2">Featured</div>
-                                <div class="price-box">
-                                    <span>$40,000</span>
-                                </div>
-                                <img class="d-block w-100" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            </a>
-                            <div class="carbox-overlap-wrapper">
-                                <div class="overlap-box">
-                                    <div class="overlap-btns-area">
-                                        <div class="car-magnify-gallery">
-                                            <a href="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" class="overlap-btn">
-                                                <i class="fa fa-expand"></i>
-                                                <img class="hidden" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg">
-                                            </a>
-                                            
-                                            <a href="media/photos/2020/07/06/1902536917_67yjFBb.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902536917_67yjFBb.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1902537043_m1EBQQG.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902537043_m1EBQQG.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1902537077_twIPCTJ.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902537077_twIPCTJ.jpg">
-                                            </a>
-                                            
-                                            
-                                            <a href="media/photos/2020/07/06/1902537082_fAE2eAe.jpg" class="hidden">
-                                                <img class="hidden" src="media/photos/2020/07/06/1902537082_fAE2eAe.jpg">
-                                            </a>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="detail">
-                            <h1 class="title">
-                                <a href="cars/2.html">2017 Ferrari 488 GTB</a>
-                            </h1>
-                            <div class="location">
-                                <a href="cars/2.html">
-                                    <i class="flaticon-pin"></i>TX, Austin
-                                </a>
-                            </div>
-                            <ul class="facilities-list clearfix">
-                                <li>Petrol</li>
-                                <li>10,000 km</li>
-                                <li>Automatic</li>
-                                <li>Sport</li>
-                                <li>White</li>
-                                <li>2017</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            
-
+                {%endfor%}
             </div>
 
             <div class="slick-btn" style="
@@ -412,6 +231,7 @@
 <!-- Featured car end -->
 
 <!-- Rent car start -->
+
 <div class="featured-car content-area">
     <div class="container">
         <!-- Main title -->
@@ -419,24 +239,25 @@
             <h1>Latest <span>Cars</span></h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
+
         <div class="row">
-          
+            {%for cars in all_cars%}
             <div class="col-lg-4 col-md-6">
                 <div class="car-box">
                     <div class="car-thumbnail">
                         <a href="cars/7.html" class="car-img">
                             <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/10/1900893329.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
+                            <img class="d-block w-100" src="{{cars.car_photo.url}}" alt="car" style="min-height: 262px; max-height: 262px;">
                             <div class="facilities-list clearfix">
                                 <ul>
                                     <li>
-                                        <span><i class="flaticon-way"></i></span>22,500 km
+                                        <span><i class="flaticon-way"></i></span>{{cars.miles  | intcomma}} km
                                     </li>
                                     <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2018
+                                        <span><i class="flaticon-calendar-1"></i></span>{{cars.year}}
                                     </li>
                                     <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Manual
+                                        <span><i class="flaticon-manual-transmission"></i></span>{{cars.fuel_type}}
                                     </li>
                                 </ul>
                             </div>
@@ -445,30 +266,33 @@
                             <div class="overlap-box">
                                 <div class="overlap-btns-area">
                                     <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/10/1900893329.jpg" class="overlap-btn">
+                                        {%if cars.car_photo_1%}
+                                        <a href="{{cars.car_photo_1.url}}" class="overlap-btn">
                                             <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/10/1900893329.jpg">
+                                            <img class="hidden" src="{{cars.car_photo_1.url}}">
                                         </a>
-                                        
-                                        <a href="media/photos/2020/07/10/1900893299.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1900893299.jpg">
+                                        {%endif%}
+                                        {%if cars.car_photo_2%}
+                                        <a href="{{cars.car_photo_2.url}}" class="hidden">
+                                            <img class="hidden" src="{{cars.car_photo_2.url}}">
                                         </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1900893319.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1900893319.jpg">
+                                         {%endif%}
+                                        {%if cars.car_photo_3%}
+
+                                        <a href="{{cars.car_photo_3.url}}" class="hidden">
+                                            <img class="hidden" src="{{cars.car_photo_3.url}}">
                                         </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1900893311.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1900893311.jpg">
+                                         {%endif%}
+                                        {%if cars.car_photo_4%}
+
+                                        <a href="{{cars.car_photo_4.url}}" class="hidden">
+                                            <img class="hidden" src="{{cars.car_photo_4.url}}">
                                         </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1900893391.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1900893391.jpg">
-                                        </a>
-                                        
+                                         {%endif%}
+
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -476,395 +300,29 @@
                     </div>
                     <div class="detail">
                         <h1 class="title">
-                            <a href="cars/7.html">2018 Toyota Corolla</a>
+                            <a href="cars/7.html">{{cars.car_title}}</a>
                         </h1>
                         <div class="location">
                             <a href="cars/7.html">
-                                <i class="flaticon-pin"></i>TX, San Antonio
+                                <i class="flaticon-pin"></i>{{cars.city}},{{cars.state}}
                             </a>
                         </div>
                     </div>
                     <div class="footer clearfix">
                         <div class="pull-left ratings days">
-                            <p class="cartype">Sedan</p>
+                            <p class="cartype">{{cars.body_style}}</p>
                         </div>
                         <div class="pull-right">
-                            <p class="price">$ 23,000</p>
+                            <p class="price">$ {{cars.price | intcomma}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-          
-            <div class="col-lg-4 col-md-6">
-                <div class="car-box">
-                    <div class="car-thumbnail">
-                        <a href="cars/6.html" class="car-img">
-                            <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/10/1893633875.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            <div class="facilities-list clearfix">
-                                <ul>
-                                    <li>
-                                        <span><i class="flaticon-way"></i></span>10,000 km
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2018
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Manual
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/10/1893633875.jpg" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/10/1893633875.jpg">
-                                        </a>
-                                        
-                                        <a href="media/photos/2020/07/10/1893633879.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1893633879.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1893633884.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1893633884.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1896836883.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1896836883.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/10/1896836887.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/10/1896836887.jpg">
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <h1 class="title">
-                            <a href="cars/6.html">2018 Toyota 4Runner</a>
-                        </h1>
-                        <div class="location">
-                            <a href="cars/6.html">
-                                <i class="flaticon-pin"></i>TX, Houston
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer clearfix">
-                        <div class="pull-left ratings days">
-                            <p class="cartype">SUV</p>
-                        </div>
-                        <div class="pull-right">
-                            <p class="price">$ 30,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4 col-md-6">
-                <div class="car-box">
-                    <div class="car-thumbnail">
-                        <a href="cars/5.html" class="car-img">
-                            <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/06/1902932503.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            <div class="facilities-list clearfix">
-                                <ul>
-                                    <li>
-                                        <span><i class="flaticon-way"></i></span>12,500 km
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2017
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/06/1902932503.jpg" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/06/1902932503.jpg">
-                                        </a>
-                                        
-                                        <a href="media/photos/2020/07/06/1902932514.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1902932514.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1902932528.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1902932528.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1902932542.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1902932542.jpg">
-                                        </a>
-                                        
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <h1 class="title">
-                            <a href="cars/5.html">2017 Jaguar F-PACE</a>
-                        </h1>
-                        <div class="location">
-                            <a href="cars/5.html">
-                                <i class="flaticon-pin"></i>TX, Austin
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer clearfix">
-                        <div class="pull-left ratings days">
-                            <p class="cartype">SUV</p>
-                        </div>
-                        <div class="pull-right">
-                            <p class="price">$ 50,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4 col-md-6">
-                <div class="car-box">
-                    <div class="car-thumbnail">
-                        <a href="cars/4.html" class="car-img">
-                            <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/06/1894300894.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            <div class="facilities-list clearfix">
-                                <ul>
-                                    <li>
-                                        <span><i class="flaticon-way"></i></span>13,000 km
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2017
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/06/1894300894.jpg" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/06/1894300894.jpg">
-                                        </a>
-                                        
-                                        <a href="media/photos/2020/07/06/1894300905.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1894300905.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1894300920.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1894300920.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1900155012.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1900155012.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1900155133.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1900155133.jpg">
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <h1 class="title">
-                            <a href="cars/4.html">2017 Ford F-250 Super Duty</a>
-                        </h1>
-                        <div class="location">
-                            <a href="cars/4.html">
-                                <i class="flaticon-pin"></i>NY, Ohio
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer clearfix">
-                        <div class="pull-left ratings days">
-                            <p class="cartype">SUV</p>
-                        </div>
-                        <div class="pull-right">
-                            <p class="price">$ 30,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4 col-md-6">
-                <div class="car-box">
-                    <div class="car-thumbnail">
-                        <a href="cars/3.html" class="car-img">
-                            <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            <div class="facilities-list clearfix">
-                                <ul>
-                                    <li>
-                                        <span><i class="flaticon-way"></i></span>12,000 km
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2017
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/06/1901478607_Nh4Kts4.jpg">
-                                        </a>
-                                        
-                                        <a href="media/photos/2020/07/06/1901478618_IC2e7kB.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1901478618_IC2e7kB.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1901478646_tZTEEcn.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1901478646_tZTEEcn.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1901478672_EqQdx4O.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1901478672_EqQdx4O.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="media/photos/2020/07/06/1901478687_JJXSaxx.jpg" class="hidden">
-                                            <img class="hidden" src="media/photos/2020/07/06/1901478687_JJXSaxx.jpg">
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <h1 class="title">
-                            <a href="cars/3.html">2017 Ford Edge</a>
-                        </h1>
-                        <div class="location">
-                            <a href="cars/3.html">
-                                <i class="flaticon-pin"></i>TX, Dallas
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer clearfix">
-                        <div class="pull-left ratings days">
-                            <p class="cartype">SUV</p>
-                        </div>
-                        <div class="pull-right">
-                            <p class="price">$ 25,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-            <div class="col-lg-4 col-md-6">
-                <div class="car-box">
-                    <div class="car-thumbnail">
-                        <a href="cars/2.html" class="car-img">
-                            <div class="tag">For Sale</div>
-                            <img class="d-block w-100" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" alt="car" style="min-height: 262px; max-height: 262px;">
-                            <div class="facilities-list clearfix">
-                                <ul>
-                                    <li>
-                                        <span><i class="flaticon-way"></i></span>10,000 km
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-calendar-1"></i></span>2017
-                                    </li>
-                                    <li>
-                                        <span><i class="flaticon-manual-transmission"></i></span>Automatic
-                                    </li>
-                                </ul>
-                            </div>
-                        </a>
-                        <div class="carbox-overlap-wrapper">
-                            <div class="overlap-box">
-                                <div class="overlap-btns-area">
-                                    <div class="car-magnify-gallery">
-                                        <a href="media/photos/2020/07/06/1902536891_pFSWDwb.jpg" class="overlap-btn">
-                                            <i class="fa fa-expand"></i>
-                                            <img class="hidden" src="media/photos/2020/07/06/1902536891_pFSWDwb.jpg">
-                                        </a>
-                                        
-                                        <a href="../../media/photos/2020/07/06/1902536917_67yjFBb.jpg" class="hidden">
-                                            <img class="hidden" src="../../media/photos/2020/07/06/1902536917_67yjFBb.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="../../media/photos/2020/07/06/1902537043_m1EBQQG.jpg" class="hidden">
-                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537043_m1EBQQG.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="../../media/photos/2020/07/06/1902537077_twIPCTJ.jpg" class="hidden">
-                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537077_twIPCTJ.jpg">
-                                        </a>
-                                        
-                                        
-                                        <a href="../../media/photos/2020/07/06/1902537082_fAE2eAe.jpg" class="hidden">
-                                            <img class="hidden" src="../../media/photos/2020/07/06/1902537082_fAE2eAe.jpg">
-                                        </a>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="detail">
-                        <h1 class="title">
-                            <a href="cars/2.html">2017 Ferrari 488 GTB</a>
-                        </h1>
-                        <div class="location">
-                            <a href="cars/2.html">
-                                <i class="flaticon-pin"></i>TX, Austin
-                            </a>
-                        </div>
-                    </div>
-                    <div class="footer clearfix">
-                        <div class="pull-left ratings days">
-                            <p class="cartype">Sport</p>
-                        </div>
-                        <div class="pull-right">
-                            <p class="price">$ 40,000</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-          
-
+            {%endfor%}
         </div>
     </div>
 </div>
+
 <!-- Rent car end -->
 
 
@@ -879,7 +337,7 @@
         <!-- Slick slider area start -->
         <div class="slick-slider-area clearfix">
             <div class="row slick-carousel" data-slick='{"slidesToShow": 4, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 2}}, {"breakpoint": 768,"settings":{"slidesToShow": 1}}]}'>
-              {%for team in teams %}
+              {% for team in teams %}
                 <div class="slick-slide-item">
                     <div class="team-1">
                         <div class="photo">
@@ -915,21 +373,10 @@
                 </div>
             </div>
             <div class="col-lg-3 col-md-4 col-sm-12">
-                <a href="contact.html" class="btn btn-md">Get in Touch</a>
+                <a href="{% url 'contact'%}" class="btn btn-md">Get in Touch</a>
             </div>
         </div>
     </div>
 </div>
 <!-- Intro section end -->
-
-
-
-
-
-
-
-
-
-
-
-{% endblock%}
+{% endblock %}
