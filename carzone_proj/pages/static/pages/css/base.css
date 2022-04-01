@@ -1,0 +1,22 @@
+#header{
+    background:#1f1f1f;
+        color: #ff1818;
+    box-shadow:0px 0px 3px 0px #ff0000;
+}
+.module h2, .module caption, .inline-group h2 {
+background:#ff0000;
+}
+a:link, a:visited {
+color: #f4f4f4;
+}
+
+div.breadcrumbs {
+    background:#1f1f1f;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #ff0000;
+
+ }
+ .button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #ba2121;
