@@ -19,7 +19,7 @@ def register(request):
 
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
-
+                print()
                 messages.error(request, 'Username already exist!')
                 return redirect('register')
             else:
@@ -36,7 +36,7 @@ def register(request):
                     messages.success(request, 'you are registered successfully!')
                     return redirect('login')
         else:
-
+            print()
             messages.error(request, 'Password do not match!')
             return redirect('register')
     else:
