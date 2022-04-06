@@ -19,11 +19,13 @@ def register(request):
 
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
-                messages.ERROR(request, 'Username already exist!')
+
+                messages.error(request, 'Username already exist!')
                 return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
-                    messages.ERROR(request, 'Email is already exist!')
+
+                    messages.error(request, 'Email is already exist!')
                     return redirect('register')
                 else:
                     user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
@@ -33,16 +35,16 @@ def register(request):
                     user.save()
                     messages.success(request, 'you are registered successfully!')
                     return redirect('login')
-
         else:
-            messages.ERROR(request, 'Password do not match!')
+
+            messages.error(request, 'Password do not match!')
             return redirect('register')
     else:
         return render(request, 'accounts/register.html')
 
 
 def logout(request):
-    return redirect("home")
+    return redirect(request, "home")
 
 
 def dashboard(request):
