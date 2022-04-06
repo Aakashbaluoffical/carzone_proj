@@ -5,6 +5,19 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def login(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'you are logged in')
+            return redirect('dashboard')
+        else:
+            print()
+            messages.error(request, 'User not exist!')
+            return redirect('login')
     return render(request, 'accounts/login.html')
 
 
@@ -28,7 +41,8 @@ def register(request):
                     messages.error(request, 'Email is already exist!')
                     return redirect('register')
                 else:
-                    user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username, email=email, password=password)
+                    user = User.objects.create_user(first_name=firstname, last_name=lastname, username=username,
+                                                    email=email, password=password)
                     auth.login(request, user)
                     messages.success(request, 'you are logged !')
                     return redirect('dashboard')
@@ -44,7 +58,10 @@ def register(request):
 
 
 def logout(request):
-    return redirect(request, "home")
+    if request.method == 'POST':
+        auth.logout(request)
+        messages.success(request, "you are successfully logout")
+        return redirect('login')
 
 
 def dashboard(request):

@@ -136,6 +136,9 @@ $(function () {
         }
     }
 
+
+
+
     function placedDashboard() {
         var headerHeight = parseInt($('.main-header').height(), 10);
         $('.dashboard').css('top', headerHeight);
