@@ -9767,3 +9767,7 @@ a.nav-link.active{
 .sticky-header{
 	z-index: 999 !important;
 }
+
+#changelist-filter li.selected a {
+    color: #ff0000;
+}

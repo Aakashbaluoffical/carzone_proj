@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 class team(models.Model):
@@ -13,5 +14,3 @@ class team(models.Model):
 
     def __str__(self):
         return self.first_name
-
-

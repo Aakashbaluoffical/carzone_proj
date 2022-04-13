@@ -27,7 +27,7 @@
             <div class="col-lg-8 col-md-12 col-xs-12">
                 <div class="car-details-section">
                     <!-- Heading start -->
-
+                 {% include 'includes/messages.html'%}
                     <div class="heading-car clearfix">
 
 
@@ -45,7 +45,7 @@
                         <!-- main slider carousel items -->
                         <div class="carousel-inner">
                             <div class="active item carousel-item" data-slide-number="0">
-                                <img src="{{single_car.car_photo.url}}" class="img-fluid" alt="slider-car">
+<!--                              <div class="tag-2">Booked</div> --> <img src="{{single_car.car_photo.url}}" class="img-fluid" alt="slider-car">
                             </div>
 
                             <div class="item carousel-item" data-slide-number="1">
@@ -113,12 +113,18 @@
 
                     <!-- Tabbing box start -->
                     <div class="tabbing tabbing-box mb-40">
-                        <ul class="nav nav-tabs" id="carTab" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Vehicle overview</a>
+                        <ul class="nav nav-tabs " id="carTab" role="tablist">
+                            <li class="nav-item col-md-3 col-sm-12">
+                                <a class="nav-link active show" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="one" aria-selected="false">Overview</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item col-md-3 col-sm-12">
                                 <a class="nav-link" id="two-tab" data-toggle="tab" href="#two" role="tab" aria-controls="two" aria-selected="false">Features</a>
+                            </li>
+                            <li class="nav-item col-md-3 col-sm-12">
+                                <button class="btn btn-outline-danger bomd btn-block btn-lg" style="padding-left:25px;padding-right:25px;" data-toggle="modal" data-target="#inquiryModal">Send message</button>
+                            </li>
+                            <li class="nav-item col-md-3 col-sm-12">
+                                <button class="btn btn-outline-danger bomd btn-block btn-lg" style="padding-left:25px;padding-right:25px;">Send message</button>
                             </li>
                         </ul>
                         <div class="tab-content" id="carTabContent">
@@ -152,12 +158,14 @@
 
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
-                <div class="sidebar-right">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+                <div class="sidebar-right ">
                     <!-- Advanced search start -->
-                    <div class="widget advanced-search d-none-992">
+                    <div class="widget advanced-search d-none-992  ">
                         <button class="btn btn-outline-danger bomd btn-block btn-lg" data-toggle="modal" data-target="#inquiryModal">Send message</button>
-
+                       <a href="https://wa.me/+919847901919?text=I'm%20interested%20in%20your%20car%20{{single_car.car_title}}%20for%20sale" > <button class="btn btn-outline-success bomd btn-block btn-lg" style="margin-top:5px;" >Start chat
+                        <img style="height:25px;width:25px;" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/WhatsApp_icon.png"></button>
+                       </a>
 
                         <br>
                         <h3 class="sidebar-title">Refine Your Search</h3>
@@ -217,29 +225,34 @@
                         <div class="modal-content">
                           <div class="contact-dealer modal-header">
                             <!-- <h5 class="modal-title" id="inquiryModalLabel">Contact Dealer</h5> -->
-                            <center><img src="../static/img/logos/logo-black-white.png"></center>
+                            <center><!--<img src="../static/img/logos/logo-black-white.png">-->
+                            <span id="bro" style="background: black;color: white;padding: 0.2rem;">BRO</span><span id="totype" style="padding:0.1rem;color:black;background: white;">TOTYPE</span></center>
                             <button type="button" class="close" data-dismiss="modal">
                               <span>&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="https://djangocarzone.com/contacts/inquiry" method="POST">
+                            <form action="{% url 'inquiry' %}" method="POST">
                               <input type="hidden" name="csrfmiddlewaretoken" value="CmXJqmhaoLoQqeHBrvCieXX29FqCgHxMMK4w2WxxWywex2oWAX0kmHxzz5sBkPZx">
+                                {%csrf_token %}
+                                {% if user.is_authenticated%}
+                                   <input type="hidden" name="user_id" value="{{user.id}}">
+                                {% else %}
+                                   <input type="hidden" name="user_id" value="0">
+                                {%endif%}
 
-
-                                <input type="hidden" name="user_id" value="0">
-
-
-                              <input type="hidden" name="car_id" value="2">
+                              <input type="hidden" name="car_id" value="{{single_car.id}}">
                                 <div class="form-group">
                                   <label for="name" class="col-form-label">Hello, My Name is</label>
                                   <div class="row">
                                     <div class="col">
                                       <input type="text" name="first_name" class="form-control" placeholder="First Name"
+                                             {% if user.is_authenticated %} value="{{user.first_name}}"{% endif %}
                                        required>
                                     </div>
                                     <div class="col">
                                       <input type="text" name="last_name" class="form-control" placeholder="Last Name"
+                                             {% if user.is_authenticated %} value="{{user.last_name}}"{% endif %}
                                         required>
                                     </div>
                                   </div>
@@ -254,7 +267,7 @@
                                     </div>
 
                                 <div class="form-group">
-                                  <input type="text" name="car_title" class="form-control" value="2017 Ferrari 488 GTB" readonly>
+                                  <input type="text" name="car_title" class="form-control" value="{{single_car.car_title}}" readonly>
                                 </div>
 
                                 <div class="form-group">
@@ -274,6 +287,7 @@
                                     <div class="col">
                                         <label for="name" class="col-form-label">You can reach me by email at</label>
                                       <input type="email" name="email" class="form-control" placeholder="Email Address"
+                                             {% if user.is_authenticated %} value="{{user.email}}" {% endif %}
                                         required>
                                     </div>
                                     <div class="col">

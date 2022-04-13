@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     # providers
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    'contact',
 ]
 
 MIDDLEWARE = [
