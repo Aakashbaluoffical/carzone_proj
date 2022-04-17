@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404
 from .models import car
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
@@ -38,7 +39,9 @@ def search(request):
         keyword = request.GET['keyword']
         if keyword:
             all_cars = all_cars.filter(description__icontains=keyword)
-
+        else:
+            print()
+            messages.error(request, 'search result is not found.')
     if 'model' in request.GET:
         model = request.GET['model']
         if model:

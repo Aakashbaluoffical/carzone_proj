@@ -18,8 +18,10 @@
 <!-- Banner end -->
 
 <!-- Search box 3 start -->
+
 <div class="search-box-3 sb-7 bg-active">
     <div class="container">
+
         <div class="search-area-inner">
             <div class="search-contents">
                 <form action="{%url 'search'%}" method="">
@@ -29,7 +31,7 @@
                             <div class="form-group">
                                 <select class="selectpicker search-fields" name="model">
                                     <option disabled="disabled" selected="selected">Select Model</option>
-                                   {% for model in model_search %}
+                                    {% for model in model_search %}
                           <option value="{{model}}">{{model}}</option>
                         {%endfor%}
                                 </select>
@@ -97,8 +99,10 @@
     <div class="container">
         <!-- Main title -->
         <div class="main-title">
+            {% include 'includes/messages.html'%}
             <h1>Here's your <span>Cars</span></h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
         </div>
         <div class="row">
             {% for car in all_cars%}
