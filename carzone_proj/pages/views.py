@@ -41,8 +41,8 @@ def service(request):
     return render(request, "pages/service.html")
 
 
-def contact(request):
-    return render(request, "pages/contact.html")
+
+
 
 def login(request):
     return render(request, "")

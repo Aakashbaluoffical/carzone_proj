@@ -6,7 +6,7 @@
 
 
 <!-- Sub banner start -->
-<div class="sub-banner overview-bgi">
+<div class="sub-banner overview-bgi" xmlns="http://www.w3.org/1999/html">
     <div class="container breadcrumb-area">
         <div class="breadcrumb-areas">
             <h1>Contact Us</h1>
@@ -27,16 +27,18 @@
             <h1>Contact <span>Us</span></h1>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
         </div>
-        <form action="https://djangocarzone.com/contact" method="POST" enctype="multipart/form-data">
-          
+         {% include 'includes/messages.html'%}
+
+        <form action="{% url 'contactus' %}" method="POST">
 
           <input type="hidden" name="csrfmiddlewaretoken" value="CsoLKOtN8XgqT7x63oQeErvBp4XOi6mFMQvymoJaGKoO0VercQegMb58PuZNmeOq">
+           {% csrf_token %}
             <div class="row">
                 <div class="col-lg-7">
                     <div class="row">
                         <div class="col-md-6 text-left">
                             <div class="form-group name">
-                                <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                                <input type="text" name="fullname" class="form-control" placeholder="Full Name" required>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -51,7 +53,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group number">
-                                <input type="text" name="phone" class="form-control" placeholder="Number">
+                                <input type="text" name="number" class="form-control" placeholder="Number">
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -64,6 +66,7 @@
                                 <button type="submit" class="btn btn-md button-theme">Send Message</button>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -106,6 +109,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </form>
     </div>
