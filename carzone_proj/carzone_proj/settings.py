@@ -51,9 +51,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'contact',
     'contactus',
+    # debuggers
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -61,6 +64,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'carzone_proj.urls'
@@ -163,3 +167,9 @@ EMAIL_POST = 587
 EMAIL_HOST_USER = 'aakashbaluoffical@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
+
+# debug files
+INTERNAL_IPS = [
+    "127.0.0.1",
+
+]

@@ -2128,7 +2128,6 @@ input[type=checkbox]:checked + label:before {
     height: 100%;
     width: 100%;
     z-index: 8;
-    background: linear-gradient(to top,rgba(47, 45, 45, 0.9) 0%,rgba(0, 0, 0, 0.45) 35%,rgba(2, 2, 2, 0) 60%,rgba(0,0,0,0) 100%);
     border-radius: 4px 4px 0 0;
     opacity: 1;
 }
@@ -2891,6 +2890,7 @@ input[type=checkbox]:checked + label:before {
     background: #fff;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    border-radius:15px;
 }
 
 .car-box-3:hover{
@@ -5424,6 +5424,7 @@ footer {
 
 .sidebar-right .m-border{
     margin-bottom: 20px;
+    border-radius:15px;
 }
 
 .sidebar-left .m-border{
@@ -5506,7 +5507,7 @@ footer {
     margin: 0 auto;
     padding: 30px;
     background: #fff;
-    border-radius: 5px;
+    border-radius: 20px;
     box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
 }
 
@@ -5605,6 +5606,7 @@ footer {
     font-weight: 400;
     color: #212121;
     text-align: center;
+    font-family:'montserrat', 'sans-serif';
 }
 
 .contact-section .form-section .form-group {
@@ -5621,7 +5623,7 @@ footer {
     float: left;
     width: 100%;
     padding: 10px 20px 11px 50px;
-    border-radius: 3px;
+    border-radius: 15px;
 }
 
 .contact-section .form-section .form-box .fa-user {
@@ -5676,6 +5678,7 @@ footer {
 
 .contact-section .form-section .btn-theme.focus, .btn-theme:focus {
     box-shadow: none;
+    border-radius:15px
 }
 
 .contact-section .form-section .btn-theme {
@@ -6095,6 +6098,8 @@ footer {
     color: #fff;
     font-size: 30px;
     text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 .sub-banner .breadcrumbs li {
