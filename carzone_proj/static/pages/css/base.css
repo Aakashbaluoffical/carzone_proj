@@ -20,3 +20,9 @@ div.breadcrumbs {
  }
  .button, input[type=submit], input[type=button], .submit-row input, a.button {
     background: #ba2121;
+.button.default, input[type=submit].default, .submit-row input.default {
+    float: right;
+    border: none;
+    font-weight: 400;
+    background: #ff0000;
+}

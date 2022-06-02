@@ -115,3 +115,20 @@ class car(models.Model):
 
     def __str__(self):
         return self.car_title
+
+
+class banner(models.Model):
+    banner_image_1 = models.ImageField(upload_to="photos/%Y/%m/%d", blank=True)
+    title_1 = models.CharField(max_length=50)
+    content_1 = models.CharField(max_length=100)
+    banner_image_2 = models.ImageField(upload_to="photos/%Y/%m/%d", blank=True)
+    title_2 = models.CharField(max_length=100)
+    content_2 = models.CharField(max_length=100)
+    banner_image_3 = models.ImageField(upload_to="ohotos/%Y/%m/%d", blank=True)
+    title_3 = models.CharField(max_length=50)
+    content_3 = models.CharField(max_length=100)
+    is_feature = models.BooleanField(default=False)
+    created_date = models.DateTimeField(default=datetime.now(), blank=True)
+
+    def __str__(self):
+        return self.title_1

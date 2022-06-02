@@ -1,17 +1,19 @@
 from django.shortcuts import render
 from .models import team
-from cars.models import car
+from cars.models import banner, car
 
 
 def home(request):
     teams = team.objects.all()
     feature_cars = car.objects.order_by('-created_date').filter(is_feature=True)
     all_cars = car.objects.order_by('-created_date')
-
+    # home page search bar
     model_search = car.objects.values_list('model', flat=True).distinct()
     city_search = car.objects.values_list('city', flat=True).distinct()
     year_search = car.objects.values_list('year', flat=True).distinct()
     body_style_search = car.objects.values_list('body_style', flat=True).distinct()
+    # home banner images, titles, and content
+    banner_details = banner.objects.filter(is_feature=True)
     data = {
         'teams': teams,
         'feature_cars': feature_cars,
@@ -20,8 +22,9 @@ def home(request):
         'city_search': city_search,
         'year_search': year_search,
         'body_style_search': body_style_search,
-
+        'banner_details': banner_details,
     }
+
     return render(request, "pages/home.html", data)
 
 
@@ -39,9 +42,6 @@ def about(request):
 
 def service(request):
     return render(request, "pages/service.html")
-
-
-
 
 
 def login(request):

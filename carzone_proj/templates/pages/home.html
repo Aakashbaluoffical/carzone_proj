@@ -10,32 +10,33 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner banner-slider-inner text-center">
             <div class="carousel-item banner-max-height active item-bg">
-                <img class="d-block w-100 h-100" src="{%static 'pages/img/car-10.jpg'%}" alt="banner">
+                {%for banner in banner_details%}
+                <img class="d-block w-100 h-100" src="{{banner.banner_image_1.url}}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
 
-                    <h3>Wow Factor Standard</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'service' %}" class="btn btn-lg btn-theme">Read more</a>
+                    <h3>{{banner.title_1}}</h3>
+                    <h5>{{banner.content_1}}</h5>
+                    <a href="{% url 'cars' %}" class="btn btn-lg btn-theme">Read more</a>
                 </div>
+                {%endfor%}
             </div>
             <div class="carousel-item banner-max-height item-bg">
-                <img class="d-block w-100 h-100" src="{%static 'pages/img/car-4.jpg'%}" alt="banner">
+                {%for banner in banner_details%}
+                <img class="d-block w-100 h-100" src="{{banner.banner_image_2.url}}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
-                    <h3>Explore Your Dream Car</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'service'%}" class="btn btn-lg btn-theme">Read more</a>
-                </div>
+                    <h3>{{banner.title_2}}</h3>
+                    <h5>{{banner.content_2}}</h5>
+                    <a href="{% url 'cars'%}" class="btn btn-lg btn-theme">Read more</a>
+                </div>{%endfor%}
             </div>
             <div class="carousel-item banner-max-height item-bg">
-                <img class="d-block w-100 h-100" src="{%static 'pages/img/car-11.jpg'%}" alt="banner">
+                {%for banner in banner_details%}
+                <img class="d-block w-100 h-100" src="{{banner.banner_image_3.url}}" alt="banner">
                 <div class="carousel-content container banner-info-2 bi-2 text-left">
-                    <h3>We Are Wheel</h3>
-                    <h5>Allow us to guide you through the innovative stress<br>
-                        free approach in finding your dream car.</h5>
-                    <a href="{% url 'service'%}" class="btn btn-lg btn-theme">Read more</a>
-                </div>
+                    <h3>{{banner.title_3}}</h3>
+                    <h5>{{banner.content_3}}</h5>
+                    <a href="{% url 'cars'%}" class="btn btn-lg btn-theme">Read more</a>
+                </div>{%endfor%}
             </div>
         </div>
         <!-- Search box 3 start -->
